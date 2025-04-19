@@ -18,8 +18,8 @@ interface DashboardProps {
 
 export function Dashboard({ claims }: DashboardProps) {
   return (
-    <div className="w-full space-y-6 sm:px-0 px-4 bg-white dark:bg-gray-900">
-      <div className="container mx-auto bg-white dark:bg-gray-900 pb-10 sm:pb-20">
+    <div className="w-full space-y-6 sm:px-0 px-4 bg-white dark:bg-slate-900">
+      <div className="container mx-auto bg-white dark:bg-slate-900 pb-10 sm:pb-20">
         <DashboardHeader />
 
         <div className="">
