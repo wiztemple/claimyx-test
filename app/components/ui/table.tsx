@@ -1,12 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useTheme } from "@/app/providers/theme-provider"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 function Table({ className, ...props }: React.ComponentProps<"table">) {
-  const { isDarkMode } = useTheme();
-  
   return (
     <div
       data-slot="table-container"
@@ -18,17 +15,20 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
         {...props}
       />
     </div>
-  )
+  );
 }
 
 function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b border-slate-200 dark:border-slate-800", className)}
+      className={cn(
+        "[&_tr]:border-b border-slate-200 dark:border-slate-800",
+        className
+      )}
       {...props}
     />
-  )
+  );
 }
 
 function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
@@ -38,7 +38,7 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
       className={cn("[&_tr:last-child]:border-0", className)}
       {...props}
     />
-  )
+  );
 }
 
 function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
@@ -51,7 +51,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
@@ -64,7 +64,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TableHead({ className, ...props }: React.ComponentProps<"th">) {
@@ -77,7 +77,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TableCell({ className, ...props }: React.ComponentProps<"td">) {
@@ -90,7 +90,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 function TableCaption({
@@ -100,10 +100,13 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("text-slate-500 dark:text-slate-400 mt-4 text-sm", className)}
+      className={cn(
+        "text-slate-500 dark:text-slate-400 mt-4 text-sm",
+        className
+      )}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -115,4 +118,4 @@ export {
   TableRow,
   TableCell,
   TableCaption,
-}
+};

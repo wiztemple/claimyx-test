@@ -1,7 +1,13 @@
 "use client";
 
 import { ChartDataType } from "@/types/types";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  TooltipItem,
+} from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -40,10 +46,10 @@ export default function DoughnutChart({
         boxPadding: 3,
         usePointStyle: true,
         callbacks: {
-          title: (context: any) => {
+          title: (context: TooltipItem<"doughnut">[]) => {
             return data.labels[context[0].dataIndex];
           },
-          label: (context: any) => {
+          label: (context: TooltipItem<"doughnut">) => {
             return `Count: ${context.raw}`;
           },
         },

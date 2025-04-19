@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import {
   Claim,
   RevenueSimulationParams,
@@ -37,11 +37,6 @@ export function RevenueForecasting({
     useState<SimulationResult | null>(null);
   const [isSimulating, setIsSimulating] = useState(false);
 
-  const totalBillingAmount = useMemo(() => {
-    return claims.reduce((total, claim) => total + claim.amount, 0);
-  }, [claims]);
-
-  // Handle slider changes
   const handleSliderChange = (
     type: keyof RevenueSimulationParams,
     value: number
@@ -52,7 +47,6 @@ export function RevenueForecasting({
     }));
   };
 
-  // Start simulation manually
   const startSimulation = () => {
     setIsSimulating(true);
     setTimeout(() => {
