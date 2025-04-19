@@ -19,7 +19,7 @@ interface DashboardProps {
 export function Dashboard({ claims }: DashboardProps) {
   return (
     <div className="w-full space-y-6 sm:px-0 px-4 bg-white dark:bg-gray-900">
-      <div className="container mx-auto bg-white dark:bg-gray-900">
+      <div className="container mx-auto bg-white dark:bg-gray-900 pb-10 sm:pb-20">
         <DashboardHeader />
 
         <div className="">
@@ -32,7 +32,7 @@ export function Dashboard({ claims }: DashboardProps) {
           </CardContent>
         </Card>
 
-        <Card className="shadow-none border mt-5 sm:mt-0 border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+        <Card className="shadow-none border mt-5 border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
           <CardHeader className="pb-2">
             <CardTitle className="text-gray-800 dark:text-gray-200">
               Revenue Forecasting
