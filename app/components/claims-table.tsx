@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import { Claim, SortDirection, SortField } from "@/types/types";
 import { ClaimsTableHeader } from "./claims-table/header";
 import { ClaimsTableContent } from "./claims-table/content";
-import { ClaimsTableSkeleton } from "./claims-table/skeleton";
 import { ClaimsTableStatusIndicators } from "./claims-table/status-indicator";
 
 interface ClaimsTableProps {

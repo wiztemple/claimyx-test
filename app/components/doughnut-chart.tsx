@@ -8,14 +8,15 @@ import {
   Legend,
   TooltipItem,
   ChartOptions,
-  ChartTypeRegistry,
+  ChartType,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 declare module "chart.js" {
-  interface PluginOptionsByType<TType extends keyof ChartTypeRegistry> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface PluginOptionsByType<TType extends ChartType> {
     centralText?: {
       display?: boolean;
       text?: string;
@@ -128,7 +129,6 @@ export default function DoughnutChart({
     },
   };
 
-  // Register the custom plugin
   ChartJS.register(centralTextPlugin);
 
   return <Doughnut data={chartData} options={chartOptions} />;
