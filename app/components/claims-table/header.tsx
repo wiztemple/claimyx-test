@@ -1,6 +1,5 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
 import { Input } from "@/app/components/ui/input";
 import {
   Select,
@@ -12,23 +11,7 @@ import {
 import { Search, Filter, FileText, RefreshCw, Menu, X } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { formatCurrency } from "@/lib/utils";
-
-interface ClaimsTableHeaderProps {
-  totalAmount: number;
-  searchTerm: string;
-  setSearchTerm: Dispatch<SetStateAction<string>>;
-  statusFilter: string;
-  setStatusFilter: Dispatch<SetStateAction<string>>;
-  mobileFiltersOpen: boolean;
-  setMobileFiltersOpen: Dispatch<SetStateAction<boolean>>;
-  resetFilters: () => void;
-  statusBreakdown: {
-    Approved: number;
-    Pending: number;
-    Denied: number;
-  };
-  totalClaims: number;
-}
+import { ClaimsTableHeaderProps } from "@/types/types";
 
 export function ClaimsTableHeader({
   totalAmount,
@@ -43,7 +26,7 @@ export function ClaimsTableHeader({
   totalClaims,
 }: ClaimsTableHeaderProps) {
   return (
-    <div className="bg-slate-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-blue-900 rounded-tl-xl rounded-tr-xl p-5 -mx-6 -mt-6">
+    <div className="bg-slate-50 dark:bg-gradient-to-r dark:from-gray-900 dark:to-slate-800 rounded-tl-xl rounded-tr-xl p-5 -mx-6 -mt-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <div>
           <h2 className="text-xl font-bold text-slate-900 dark:text-white">

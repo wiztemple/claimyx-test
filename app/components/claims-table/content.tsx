@@ -37,7 +37,7 @@ export function ClaimsTableContent({
 
   return (
     <>
-      <div className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm">
+      <div className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-xs">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader className="bg-slate-50 dark:bg-slate-900">
@@ -119,8 +119,8 @@ export function ClaimsTableContent({
                       key={claim.patient_id}
                       className={`hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-800 ${
                         index % 2 === 0
-                          ? "bg-white dark:bg-slate-900/20"
-                          : "bg-white dark:bg-transparent"
+                          ? "bg-white dark:bg-slate-800/20"
+                          : "bg-white dark:bg-slate-900"
                       }`}
                     >
                       <TableCell className="font-medium py-3 text-slate-700 dark:text-slate-300">

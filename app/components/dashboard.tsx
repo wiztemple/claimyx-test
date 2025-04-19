@@ -42,15 +42,17 @@ export function Dashboard() {
         <DashboardSummary claims={claims} isLoading={isLoading} />
       </div>
 
-      <Card className="border border-gray-200 shadow-none dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+      <Card className="border border-gray-200 shadow-none dark:border-gray-800 bg-white dark:bg-gray-900">
         <CardContent>
           <ClaimsTable claims={claims} isLoading={isLoading} />
         </CardContent>
       </Card>
 
-      <Card className="shadow-md border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+      <Card className="shadow-none border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
         <CardHeader className="pb-2">
-          <CardTitle className="text-gray-800 dark:text-gray-200">Revenue Forecasting</CardTitle>
+          <CardTitle className="text-gray-800 dark:text-gray-200">
+            Revenue Forecasting
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <RevenueForecasting claims={claims} isLoading={isLoading} />
