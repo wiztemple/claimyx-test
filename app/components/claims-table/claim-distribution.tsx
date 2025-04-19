@@ -33,7 +33,7 @@ export function ClaimDistribution({
 }: ClaimDistributionProps) {
   return (
     <Card
-      className="shadow-none rounded-xl overflow-hidden relative border-none
+      className="shadow-none rounded-xl mb-5 sm:mb-0 overflow-hidden relative border-none
         bg-gradient-to-br from-slate-50 to-slate-100
         dark:bg-gradient-to-br dark:from-gray-900 dark:to-slate-900"
     >

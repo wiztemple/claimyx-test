@@ -19,7 +19,7 @@ export function DashboardHeader() {
         </div>
 
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+          <h1 className="text-xl sm:text-3xl font-bold tracking-tight">
             <span className="text-gray-800 dark:bg-gradient-to-r dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 dark:bg-clip-text dark:text-transparent">
               Healthcare Billing Dashboard
             </span>

@@ -35,7 +35,6 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
       );
     }
 
-    // Apply search filter
     if (searchTerm) {
       const lowercasedSearch = searchTerm.toLowerCase();
       filtered = filtered.filter(
