@@ -19,7 +19,7 @@ interface ResultCardsProps {
 export function ResultCards({ simulationResult }: ResultCardsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-      <Card className="rounded-xl shadow-md overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
+      <Card className="rounded-xl shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
         <CardContent className="pt-6 pb-5 px-5">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
@@ -48,7 +48,7 @@ export function ResultCards({ simulationResult }: ResultCardsProps) {
         </CardContent>
       </Card>
 
-      <Card className="rounded-xl shadow-md overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
+      <Card className="rounded-xl shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
         <CardContent className="pt-6 pb-5 px-5">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
@@ -77,7 +77,7 @@ export function ResultCards({ simulationResult }: ResultCardsProps) {
         </CardContent>
       </Card>
 
-      <Card className="rounded-xl shadow-md overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
+      <Card className="rounded-xl shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
         <CardContent className="pt-6 pb-5 px-5">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">

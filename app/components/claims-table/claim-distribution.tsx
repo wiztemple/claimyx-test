@@ -35,7 +35,7 @@ export function ClaimDistribution({
     <Card
       className="shadow-none rounded-xl overflow-hidden relative border-none
         bg-gradient-to-br from-slate-50 to-slate-100
-        dark:bg-gradient-to-br dark:from-black/50 dark:to-gray-800"
+        dark:bg-gradient-to-br dark:from-gray-900 dark:to-slate-900"
     >
       <div
         className="absolute top-0 right-0 w-40 h-40 rounded-full

@@ -1,3 +1,5 @@
+import { Dispatch, ReactNode, SetStateAction } from "react";
+
 export type Claim = {
   patient_id: string;
   patient_name: string;
@@ -37,8 +39,6 @@ export interface RevenueForecastingProps {
   claims: Claim[];
   isLoading: boolean;
 }
-
-import { ReactNode } from "react";
 
 export interface StatusDataType {
   count: number;
@@ -124,4 +124,21 @@ export interface SimulationResult {
   histogram: number[];
   minRevenue: number;
   maxRevenue: number;
+}
+
+export interface ClaimsTableHeaderProps {
+  totalAmount: number;
+  searchTerm: string;
+  setSearchTerm: Dispatch<SetStateAction<string>>;
+  statusFilter: string;
+  setStatusFilter: Dispatch<SetStateAction<string>>;
+  mobileFiltersOpen: boolean;
+  setMobileFiltersOpen: Dispatch<SetStateAction<boolean>>;
+  resetFilters: () => void;
+  statusBreakdown: {
+    Approved: number;
+    Pending: number;
+    Denied: number;
+  };
+  totalClaims: number;
 }

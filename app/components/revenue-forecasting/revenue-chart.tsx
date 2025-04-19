@@ -143,7 +143,7 @@ export function RevenueChart({
   };
 
   return (
-    <div className="h-72 w-full bg-slate-50 dark:bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+    <div className="h-72 w-full bg-slate-50 dark:bg-slate-900 p-4 rounded-xl shadow-none border border-slate-200 dark:border-slate-800">
       <Line data={data} options={options} />
     </div>
   );

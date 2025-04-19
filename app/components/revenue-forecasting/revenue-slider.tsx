@@ -20,7 +20,7 @@ export function RevenueSlider({
   color,
 }: RevenueSliderProps) {
   return (
-    <div className="space-y-3 p-5 bg-slate-50 dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+    <div className="space-y-3 p-5 bg-white dark:bg-slate-900 rounded-xl shadow-none border border-slate-100 dark:border-slate-700">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div
