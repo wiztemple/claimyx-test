@@ -1,41 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Skeleton } from "@/app/components/ui/skeleton";
 import { Claim } from "@/types/types";
 import { useTheme } from "../providers/theme-provider";
 import { statusConfig } from "@/lib/status-config";
 import { calculateMetrics } from "@/lib/utils";
 import { StatusCard } from "./ui/status-card";
 import { ClaimDistribution } from "./claims-table/claim-distribution";
+import { useEffect, useState } from "react";
 
 interface DashboardSummaryProps {
   claims: Claim[];
-  isLoading: boolean;
 }
 
-export function DashboardSummary({ claims, isLoading }: DashboardSummaryProps) {
+export function DashboardSummary({ claims }: DashboardSummaryProps) {
   const { isDarkMode } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const renderSkeleton = () => (
-    <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        {[...Array(4)].map((_, i) => (
-          <Skeleton key={i} className="h-28 w-full rounded-xl" />
-        ))}
-      </div>
-      <div className="col-span-1 sm:col-span-2 lg:col-span-4">
-        <Skeleton className="h-64 w-full rounded-xl" />
-      </div>
-    </>
-  );
-
-  if (isLoading) return renderSkeleton();
 
   const statusData = calculateMetrics(claims, statusConfig);
 
@@ -70,13 +53,13 @@ export function DashboardSummary({ claims, isLoading }: DashboardSummaryProps) {
           </div>
         ))}
       </div>
-      
-      <ClaimDistribution 
-        chartData={chartData} 
-        statusData={statusData} 
-        statusConfig={statusConfig} 
-        mounted={mounted} 
-        isDarkMode={isDarkMode} 
+
+      <ClaimDistribution
+        chartData={chartData}
+        statusData={statusData}
+        statusConfig={statusConfig}
+        mounted={mounted}
+        isDarkMode={isDarkMode}
       />
     </>
   );
