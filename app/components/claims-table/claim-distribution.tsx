@@ -65,7 +65,11 @@ export function ClaimDistribution({
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-1/3 h-48 sm:h-60 mb-6 lg:mb-0">
             {mounted && (
-              <DoughnutChart data={chartData} isDarkMode={isDarkMode} />
+              <DoughnutChart
+                data={chartData}
+                isDarkMode={isDarkMode}
+                centerText="Total Claims"
+              />
             )}
           </div>
 

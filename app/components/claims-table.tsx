@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useMemo } from "react";
@@ -10,10 +9,9 @@ import { ClaimsTableStatusIndicators } from "./claims-table/status-indicator";
 
 interface ClaimsTableProps {
   claims: Claim[];
-  isLoading: boolean;
 }
 
-export function ClaimsTable({ claims, isLoading }: ClaimsTableProps) {
+export function ClaimsTable({ claims }: ClaimsTableProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [sortField, setSortField] = useState<SortField>("claim_date");
@@ -104,10 +102,6 @@ export function ClaimsTable({ claims, isLoading }: ClaimsTableProps) {
     setSortDirection("desc");
     setMobileFiltersOpen(false);
   };
-
-  if (isLoading) {
-    return <ClaimsTableSkeleton />;
-  }
 
   return (
     <div className="space-y-6">

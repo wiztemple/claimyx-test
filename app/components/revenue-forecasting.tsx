@@ -10,20 +10,15 @@ import { useTheme } from "@/app/providers/theme-provider";
 import { RevenueChart } from "./revenue-forecasting/revenue-chart";
 import { SimulationLoading } from "./revenue-forecasting/simulation-loading";
 import { SimulationStart } from "./revenue-forecasting/simulation-start";
-import { Skeleton } from "@/app/components/ui/skeleton";
 import { runMonteCarloSimulation } from "@/lib/simulation-utils";
 import { RevenueSliders } from "./revenue-forecasting/revenue-sliders";
 import { ResultCards } from "./revenue-forecasting/result-cards";
 
 interface RevenueForecastingProps {
   claims: Claim[];
-  isLoading: boolean;
 }
 
-export function RevenueForecasting({
-  claims,
-  isLoading,
-}: RevenueForecastingProps) {
+export function RevenueForecasting({ claims }: RevenueForecastingProps) {
   const { isDarkMode } = useTheme();
 
   const [simulationParams, setSimulationParams] =
@@ -62,7 +57,7 @@ export function RevenueForecasting({
   };
 
   useEffect(() => {
-    if (claims.length > 0 && !isLoading) {
+    if (claims.length > 0 && !isSimulating) {
       const delayTimer = setTimeout(() => {
         setIsSimulating(true);
 
@@ -80,25 +75,7 @@ export function RevenueForecasting({
 
       return () => clearTimeout(delayTimer);
     }
-  }, [claims, simulationParams, isLoading]);
-
-  if (isLoading) {
-    return (
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Skeleton className="h-20 w-full rounded-xl" />
-          <Skeleton className="h-20 w-full rounded-xl" />
-          <Skeleton className="h-20 w-full rounded-xl" />
-        </div>
-        <Skeleton className="h-72 w-full rounded-xl" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Skeleton className="h-28 w-full rounded-xl" />
-          <Skeleton className="h-28 w-full rounded-xl" />
-          <Skeleton className="h-28 w-full rounded-xl" />
-        </div>
-      </div>
-    );
-  }
+  }, [claims, simulationParams]);
 
   return (
     <div className="space-y-6">

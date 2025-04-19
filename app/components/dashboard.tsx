@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -12,39 +11,23 @@ import { DashboardSummary } from "@/app/components/dashboard-summary";
 import { ClaimsTable } from "@/app/components/claims-table";
 import { RevenueForecasting } from "@/app/components/revenue-forecasting";
 import { Claim } from "@/types/types";
-import { fetchClaims } from "@/lib/server";
 
-export function Dashboard() {
-  const [claims, setClaims] = useState<Claim[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+interface DashboardProps {
+  claims: Claim[];
+}
 
-  useEffect(() => {
-    async function loadClaims() {
-      try {
-        setIsLoading(true);
-        const data = await fetchClaims();
-        setClaims(data);
-      } catch (error) {
-        console.error("Failed to fetch claims", error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    loadClaims();
-  }, []);
-
+export function Dashboard({ claims }: DashboardProps) {
   return (
     <div className="container mx-auto space-y-6">
       <DashboardHeader />
 
       <div className="">
-        <DashboardSummary claims={claims} isLoading={isLoading} />
+        <DashboardSummary claims={claims} />
       </div>
 
       <Card className="border border-gray-200 shadow-none dark:border-gray-800 bg-white dark:bg-gray-900">
         <CardContent>
-          <ClaimsTable claims={claims} isLoading={isLoading} />
+          <ClaimsTable claims={claims} />
         </CardContent>
       </Card>
 
@@ -55,7 +38,7 @@ export function Dashboard() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <RevenueForecasting claims={claims} isLoading={isLoading} />
+          <RevenueForecasting claims={claims} />
         </CardContent>
       </Card>
     </div>
