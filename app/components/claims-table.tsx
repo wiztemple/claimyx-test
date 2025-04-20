@@ -1,7 +1,12 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Claim, SortDirection, SortField } from "@/types/types";
+import {
+  Claim,
+  SortDirection,
+  SortField,
+  StatusBreakdown,
+} from "@/types/types";
 import { ClaimsTableHeader } from "./claims-table/header";
 import { ClaimsTableContent } from "./claims-table/content";
 import { ClaimsTableStatusIndicators } from "./claims-table/status-indicator";
@@ -17,6 +22,10 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
   const handleSort = (field: SortField) => {
     if (sortField === field) {
       setSortDirection(sortDirection === "asc" ? "desc" : "asc");
@@ -24,6 +33,8 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
       setSortField(field);
       setSortDirection("asc");
     }
+    // Reset to first page when sorting changes
+    setCurrentPage(1);
   };
 
   const filteredAndSortedClaims = useMemo(() => {
@@ -77,11 +88,28 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
     return filtered;
   }, [claims, statusFilter, searchTerm, sortField, sortDirection]);
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredAndSortedClaims.length / itemsPerPage);
+
+  // When filters change and there are no results on the current page, go back to page 1
+  useMemo(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(1);
+    }
+  }, [totalPages, currentPage]);
+
+  // Get current page data
+  const paginatedClaims = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredAndSortedClaims.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredAndSortedClaims, currentPage, itemsPerPage]);
+
   const totalAmount = filteredAndSortedClaims.reduce(
     (sum, claim) => sum + claim.amount,
     0
   );
-  const statusBreakdown = {
+
+  const statusBreakdown: StatusBreakdown = {
     Approved: filteredAndSortedClaims.filter(
       (claim) => claim.payment_status === "Approved"
     ).length,
@@ -99,6 +127,7 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
     setSortField("claim_date");
     setSortDirection("desc");
     setMobileFiltersOpen(false);
+    setCurrentPage(1); // Reset pagination when filters are reset
   };
 
   return (
@@ -119,13 +148,17 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
       <ClaimsTableStatusIndicators statusBreakdown={statusBreakdown} />
 
       <ClaimsTableContent
-        filteredAndSortedClaims={filteredAndSortedClaims}
+        filteredAndSortedClaims={paginatedClaims}
         totalClaims={claims.length}
         statusBreakdown={statusBreakdown}
         sortField={sortField}
         sortDirection={sortDirection}
         handleSort={handleSort}
         resetFilters={resetFilters}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        itemsPerPage={itemsPerPage}
+        onPageChange={setCurrentPage}
       />
     </div>
   );

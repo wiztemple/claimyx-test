@@ -84,6 +84,8 @@ export function RevenueForecasting({ claims }: RevenueForecastingProps) {
         onSliderChange={handleSliderChange}
       />
 
+{simulationResult && <ResultCards simulationResult={simulationResult} />}
+
       {isSimulating ? (
         <SimulationLoading />
       ) : simulationResult ? (
@@ -95,7 +97,7 @@ export function RevenueForecasting({ claims }: RevenueForecastingProps) {
         <SimulationStart onStart={startSimulation} />
       )}
 
-      {simulationResult && <ResultCards simulationResult={simulationResult} />}
+     
     </div>
   );
 }

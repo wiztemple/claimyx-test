@@ -24,6 +24,10 @@ export function ClaimsTableContent({
   sortDirection,
   handleSort,
   resetFilters,
+  currentPage,
+  totalPages,
+  itemsPerPage,
+  onPageChange,
 }: ClaimsTableContentProps) {
   const getSortIcon = (field: SortField) => {
     if (sortField !== field)
@@ -172,6 +176,10 @@ export function ClaimsTableContent({
           filteredClaimsCount={filteredAndSortedClaims.length}
           totalClaimsCount={totalClaims}
           statusBreakdown={statusBreakdown}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          itemsPerPage={itemsPerPage}
+          onPageChange={onPageChange}
         />
       </div>
 

@@ -19,8 +19,8 @@ interface ResultCardsProps {
 export function ResultCards({ simulationResult }: ResultCardsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-      <Card className="rounded-xl shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
-        <CardContent className="pt-6 pb-5 px-5">
+      <Card className="rounded-xl sm:h-[180px] shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
+        <CardContent className="py-3 px-5">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-xl bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">
@@ -39,7 +39,7 @@ export function ResultCards({ simulationResult }: ResultCardsProps) {
               <ArrowRight className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
             </div>
           </div>
-          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+          <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
             <p className="text-sm text-slate-600 dark:text-slate-300 flex items-center gap-1">
               <Hash className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
               Average of all 2,000 simulation runs
@@ -48,8 +48,8 @@ export function ResultCards({ simulationResult }: ResultCardsProps) {
         </CardContent>
       </Card>
 
-      <Card className="rounded-xl shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
-        <CardContent className="pt-6 pb-5 px-5">
+      <Card className="rounded-xl sm:h-[180px] shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
+        <CardContent className="py-3 px-5">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
@@ -68,7 +68,7 @@ export function ResultCards({ simulationResult }: ResultCardsProps) {
               <BarChart3 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
             </div>
           </div>
-          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+          <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
             <p className="text-sm text-slate-600 dark:text-slate-300 flex items-center gap-1">
               <Hash className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
               Only 5% of outcomes exceed this value
@@ -77,8 +77,8 @@ export function ResultCards({ simulationResult }: ResultCardsProps) {
         </CardContent>
       </Card>
 
-      <Card className="rounded-xl shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
-        <CardContent className="pt-6 pb-5 px-5">
+      <Card className="rounded-xl sm:h-[180px] shadow-none overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700">
+        <CardContent className="py-3 px-5">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-xl bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
@@ -97,7 +97,7 @@ export function ResultCards({ simulationResult }: ResultCardsProps) {
               <Hash className="h-5 w-5 text-amber-600 dark:text-amber-400" />
             </div>
           </div>
-          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+          <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
             <p className="text-sm text-slate-600 dark:text-slate-300 flex items-center gap-1">
               <Hash className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
               Middle value (50th percentile) of outcomes

@@ -40,7 +40,7 @@ export function StatusCard({ status, config, data }: StatusCardProps) {
           </div>
         </div>
 
-        <div className="flex justify-between mt-2">
+        <div className="flex justify-between items-center mt-2">
           <div>
             <p
               className={`text-xl sm:text-2xl font-bold ${config.textColorBold}`}
@@ -57,7 +57,7 @@ export function StatusCard({ status, config, data }: StatusCardProps) {
               {status === "Total" ? countLabel : config.amountLabel}
             </p>
             <p
-              className={`text-xs sm:text-sm font-semibold ${config.textColorBold}`}
+              className={`text-xs sm:text-lg font-bold ${config.textColorBold}`}
             >
               {status === "Total" ? data.count : formatCurrency(data.amount)}
             </p>

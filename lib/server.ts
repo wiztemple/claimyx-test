@@ -1,3 +1,5 @@
+"use server";
+
 import { Claim } from "@/types/types";
 import { mockClaims } from "./data";
 

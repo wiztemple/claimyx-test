@@ -98,20 +98,6 @@ export type SortField = keyof Claim | null;
 
 export type SortDirection = "asc" | "desc";
 
-export interface ClaimsTableContentProps {
-  filteredAndSortedClaims: Claim[];
-  totalClaims: number;
-  statusBreakdown: {
-    Approved: number;
-    Pending: number;
-    Denied: number;
-  };
-  sortField: SortField;
-  sortDirection: SortDirection;
-  handleSort: (field: SortField) => void;
-  resetFilters: () => void;
-}
-
 export interface RevenueSimulationParams {
   pendingProbability: number;
   approvedProbability: number;
@@ -141,4 +127,26 @@ export interface ClaimsTableHeaderProps {
     Denied: number;
   };
   totalClaims: number;
+}
+
+export interface ClaimsTableContentProps {
+  filteredAndSortedClaims: any[];
+  totalClaims: number;
+  statusBreakdown: StatusBreakdown;
+  sortField: SortField;
+  sortDirection: "asc" | "desc";
+  handleSort: (field: SortField) => void;
+  resetFilters: () => void;
+  currentPage: number;
+  totalPages: number;
+  itemsPerPage: number;
+  onPageChange: (page: number) => void;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  totalItems: number;
+  itemsPerPage: number;
 }
